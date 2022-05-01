@@ -1,0 +1,23 @@
+<div class="loginContainer">
+  
+    <form #loginForm="ngForm" [formGroup]="loginFormGroup" (submit)="login()">
+        <!-- <input type="text" placeholder="User name" name="username" [formControl]="userName"><br> -->
+        <input type="text" placeholder="User name" name="username" [formControl]="userNameFormControl"><br>
+        
+        <span *ngIf="userNameFormControl.errors?.required && userNameFormControl.touched">Invalid username</span><br>
+        <span *ngIf="userNameFormControl.errors?.pattern && userNameFormControl.touched">Name must be capitalized</span><br>
+        
+        <input type="password" placeholder="Password" name="password" [formControl]="passwordFormControl"><br>
+        <span *ngIf="passwordFormControl.invalid && passwordFormControl.touched">Missing password</span> <br>      
+      
+        <button [disabled]="loginForm.form.invalid">login</button>
+    </form>
+
+    <div >
+        <img id="logo" src="assets/LoginPagePng.png"/>
+    </div>
+
+   
+
+
+</div>
